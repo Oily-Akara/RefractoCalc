@@ -8,7 +8,16 @@
         Title="Optometry Suite" Height="600" Width="900">
 
     <Grid>
-        <!-- This places our calculator inside the main window -->
-        <views:VertexDistanceView />
+        <TabControl Margin="10">
+            <!-- Tab 1: Vertex Distance -->
+            <TabItem Header="Vertex Distance">
+                <views:VertexDistanceView />
+            </TabItem>
+
+            <!-- Tab 2: Over Refraction (New!) -->
+            <TabItem Header="CL Over-Refraction">
+                <views:CLOverRefractionView />
+            </TabItem>
+        </TabControl>
     </Grid>
 </Window>

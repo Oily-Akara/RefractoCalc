@@ -1,0 +1,44 @@
+﻿<UserControl x:Class="RefractoCalc.WPF.Views.CLOverRefractionView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:RefractoCalc.WPF.ViewModels"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+
+    <UserControl.DataContext>
+        <vm:CLOverRefractionViewModel/>
+    </UserControl.DataContext>
+
+    <Grid Background="#F0F0F0">
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Width="300">
+
+            <TextBlock Text="Contact Lens Over-Refraction" FontSize="20" FontWeight="Bold" Margin="0,0,0,20" HorizontalAlignment="Center"/>
+
+            <!-- INPUT: Trial Lens -->
+            <Label Content="Trial Lens Power (D)"/>
+            <TextBox Text="{Binding TrialLensPower, UpdateSourceTrigger=PropertyChanged}" Height="30" Margin="0,0,0,10" Padding="5"/>
+
+            <!-- INPUT: Tear Lens -->
+            <Label Content="Tear Lens Power (D)"/>
+            <TextBox Text="{Binding TearLensPower, UpdateSourceTrigger=PropertyChanged}" Height="30" Margin="0,0,0,10" Padding="5"/>
+
+            <!-- INPUT: Over Refraction -->
+            <Label Content="Over-Refraction (D)"/>
+            <TextBox Text="{Binding OverRefraction, UpdateSourceTrigger=PropertyChanged}" Height="30" Margin="0,0,0,20" Padding="5"/>
+
+            <!-- BUTTON -->
+            <Button Content="Calculate Final Power" 
+                    Command="{Binding CalculateCommand}"
+                    Height="40" Background="#007ACC" Foreground="White" FontWeight="Bold" Margin="0,0,0,20"/>
+
+            <!-- RESULT -->
+            <TextBlock Text="Final Contact Lens Power:" HorizontalAlignment="Center" Foreground="Gray"/>
+            <TextBlock Text="{Binding FinalPower, StringFormat=N2}" 
+                       FontSize="30" FontWeight="Bold" HorizontalAlignment="Center" Foreground="#333"/>
+            <TextBlock Text="Diopters" HorizontalAlignment="Center" FontSize="10"/>
+
+        </StackPanel>
+    </Grid>
+</UserControl>
