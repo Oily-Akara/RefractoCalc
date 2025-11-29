@@ -1,0 +1,68 @@
+﻿<UserControl x:Class="RefractoCalc.WPF.Views.PrismCalculatorView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:RefractoCalc.WPF.ViewModels"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+
+    <UserControl.DataContext>
+        <vm:PrismCalculatorViewModel/>
+    </UserControl.DataContext>
+
+    <Grid Background="#F0F0F0">
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Width="400">
+            <TextBlock Text="Resultant Prism Calculator" FontSize="20" FontWeight="Bold" Margin="0,0,0,20" HorizontalAlignment="Center"/>
+
+            <!-- Horizontal Input Row -->
+            <Label Content="Horizontal Component"/>
+            <Grid Margin="0,0,0,10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBox Grid.Column="0" Text="{Binding HorizontalValue}" Height="30" Margin="0,0,5,0" Padding="5"/>
+                <ComboBox Grid.Column="1" SelectedIndex="{Binding HorizontalDirectionIndex}" Height="30">
+                    <ComboBoxItem Content="Base Out (BO)"/>
+                    <ComboBoxItem Content="Base In (BI)"/>
+                </ComboBox>
+            </Grid>
+
+            <!-- Vertical Input Row -->
+            <Label Content="Vertical Component"/>
+            <Grid Margin="0,0,0,20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBox Grid.Column="0" Text="{Binding VerticalValue}" Height="30" Margin="0,0,5,0" Padding="5"/>
+                <ComboBox Grid.Column="1" SelectedIndex="{Binding VerticalDirectionIndex}" Height="30">
+                    <ComboBoxItem Content="Base Up (BU)"/>
+                    <ComboBoxItem Content="Base Down (BD)"/>
+                </ComboBox>
+            </Grid>
+
+            <Button Content="Calculate Resultant" Command="{Binding CalculateCommand}" 
+                    Height="40" Background="#007ACC" Foreground="White" FontWeight="Bold" Margin="0,0,0,20"/>
+
+            <!-- Results -->
+            <Border Background="White" Padding="15" CornerRadius="5" BorderBrush="#DDD" BorderThickness="1">
+                <StackPanel>
+                    <TextBlock Text="Resultant Prism:" Foreground="Gray"/>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <TextBlock Text="{Binding ResultMagnitude, StringFormat=N2}" FontSize="24" FontWeight="Bold"/>
+                        <TextBlock Text=" Δ" FontSize="24"/>
+                    </StackPanel>
+
+                    <TextBlock Text="Axis / Base Direction:" Foreground="Gray" Margin="0,10,0,0"/>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <TextBlock Text="@ " FontSize="24" Foreground="Gray"/>
+                        <TextBlock Text="{Binding ResultAxis, StringFormat=N1}" FontSize="24" FontWeight="Bold"/>
+                        <TextBlock Text="°" FontSize="24"/>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </Grid>
+</UserControl>

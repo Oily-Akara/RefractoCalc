@@ -18,6 +18,10 @@
             <TabItem Header="CL Over-Refraction">
                 <views:CLOverRefractionView />
             </TabItem>
+            <!-- Tab 3: Prism Calculator -->
+            <TabItem Header="Prism Calculator">
+                <views:PrismCalculatorView />
+            </TabItem>
         </TabControl>
     </Grid>
 </Window>
