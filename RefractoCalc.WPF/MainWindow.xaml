@@ -22,6 +22,10 @@
             <TabItem Header="Prism Calculator">
                 <views:PrismCalculatorView />
             </TabItem>
+            <!-- Tab 4: Visual Acuity Converter-->
+            <TabItem Header="Visual Acuity Converter">
+                <views:VisualAcuityView />
+            </TabItem>
         </TabControl>
     </Grid>
 </Window>

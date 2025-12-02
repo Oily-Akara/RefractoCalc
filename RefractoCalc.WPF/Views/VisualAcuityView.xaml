@@ -1,0 +1,63 @@
+﻿<UserControl x:Class="RefractoCalc.WPF.Views.VisualAcuityView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:RefractoCalc.WPF.ViewModels"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+
+    <UserControl.DataContext>
+        <vm:VisualAcuityViewModel/>
+    </UserControl.DataContext>
+
+    <Grid Background="#F0F0F0">
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Width="500">
+            <TextBlock Text="Visual Acuity Converter" FontSize="20" FontWeight="Bold" Margin="0,0,0,30" HorizontalAlignment="Center"/>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <!-- Inputs -->
+                    <ColumnDefinition Width="Auto"/>
+                    <!-- Divider -->
+                    <ColumnDefinition Width="*"/>
+                    <!-- Outputs -->
+                </Grid.ColumnDefinitions>
+
+                <!-- INPUT SECTION -->
+                <StackPanel Grid.Column="0" Margin="0,0,20,0">
+                    <TextBlock Text="Snellen Fraction" FontWeight="SemiBold" Margin="0,0,0,10"/>
+
+                    <!-- Simulating a Fraction layout -->
+                    <TextBox Text="{Binding Numerator}" HorizontalContentAlignment="Center" Height="35" FontSize="16" Margin="20,0,20,5"/>
+                    <Border Height="2" Background="Black" Margin="20,0,20,5"/>
+                    <TextBox Text="{Binding Denominator}" HorizontalContentAlignment="Center" Height="35" FontSize="16" Margin="20,0,20,20"/>
+
+                    <Button Content="Convert" Command="{Binding CalculateCommand}" 
+                            Height="40" Background="#007ACC" Foreground="White" FontWeight="Bold"/>
+                </StackPanel>
+
+                <!-- Vertical Divider -->
+                <Border Grid.Column="1" Width="1" Background="#AAA" Margin="0,10"/>
+
+                <!-- OUTPUT SECTION -->
+                <StackPanel Grid.Column="2" Margin="20,0,0,0" VerticalAlignment="Center">
+
+                    <!-- Decimal Result -->
+                    <TextBlock Text="Decimal" Foreground="Gray"/>
+                    <TextBlock Text="{Binding ResultDecimal, StringFormat=N2}" FontSize="24" FontWeight="Bold" Margin="0,0,0,10"/>
+
+                    <!-- MAR Result -->
+                    <TextBlock Text="MAR (min arc)" Foreground="Gray"/>
+                    <TextBlock Text="{Binding ResultMAR, StringFormat=N2}" FontSize="24" FontWeight="Bold" Margin="0,0,0,10"/>
+
+                    <!-- LogMAR Result -->
+                    <TextBlock Text="LogMAR" Foreground="Gray"/>
+                    <TextBlock Text="{Binding ResultLogMAR, StringFormat=N2}" FontSize="24" FontWeight="Bold" Foreground="#D9534F"/>
+
+                </StackPanel>
+            </Grid>
+        </StackPanel>
+    </Grid>
+</UserControl>

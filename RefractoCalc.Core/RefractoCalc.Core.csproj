@@ -10,7 +10,6 @@
     <Folder Include="Calculators\Biometry\" />
     <Folder Include="Calculators\Glaucoma\" />
     <Folder Include="Calculators\BinocularVision\" />
-    <Folder Include="Calculators\Clinical\" />
     <Folder Include="Calculators\Pharmacology\" />
     <Folder Include="Calculators\Specialty\" />
     <Folder Include="Calculators\RefractiveSurgery\" />
