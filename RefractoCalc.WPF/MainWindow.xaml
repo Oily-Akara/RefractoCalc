@@ -26,6 +26,10 @@
             <TabItem Header="Visual Acuity Converter">
                 <views:VisualAcuityView />
             </TabItem>
+            <!-- Tab 5: ACD Estimation -->
+            <TabItem Header="ACD Estimation">
+                <views:ACDView />
+            </TabItem>
         </TabControl>
     </Grid>
 </Window>

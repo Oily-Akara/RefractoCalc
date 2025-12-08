@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Calculators\Biometry\" />
     <Folder Include="Calculators\Glaucoma\" />
     <Folder Include="Calculators\BinocularVision\" />
     <Folder Include="Calculators\Pharmacology\" />
